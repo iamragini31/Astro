@@ -42,7 +42,11 @@ namespace Pandit_ApplicationManager
                         model.CustID = Convert.ToInt64(dt.Rows[i]["CustID"]);
                         model.charges_call_per_minu = Convert.ToDouble(dt.Rows[i]["charges_call_per_minu"]);
                         model.Customerwalletamount = Convert.ToDouble(dt.Rows[i]["Customerwalletamount"]);
-                        model.Mobile =dt.Rows[i]["countrycode"].ToString()+ dt.Rows[i]["Mobile"].ToString();
+                        string testText = dt.Rows[i]["countrycode"].ToString();
+                        int startindex = testText.IndexOf('(');
+                        int Endindex = testText.IndexOf(')');
+                        string outputstring = testText.Substring(startindex + 1, Endindex - startindex - 1);
+                        model.Mobile = outputstring + dt.Rows[i]["Mobile"].ToString();
                         list.Add(model);
                     }
                 }

@@ -595,8 +595,8 @@ $("#disconnect_call").on("click", function () {
     var hdnCustomerwalletamount = $("#hdnCustomerwalletamount").val();
     var time = hdnCustomerwalletamount / hdncharges_call_per_minu;
     var moneydeducted = time * hdncharges_call_per_minu;
- 
-    room.cancelOutboundCall('918789635170', function (resp) {
+    var mobileno = $("#hdnMobile").val();
+    room.cancelOutboundCall(mobileno/*'918789635170'*/, function (resp) {
         debugger
         var res = resp.result;
         if (res.msg == "Success") {
